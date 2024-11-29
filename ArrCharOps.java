@@ -36,16 +36,22 @@ public class ArrCharOps {
     /** Returns the char value at the specified index. Assume that the array is non-empty.
      */
     public static char charAt(char[] arr, int index) {
-        // Replace the following statement with your code
-        return 0;
+        return arr[index];
     }
 
     /** If the two arrays have the same value in every index, 
      *  returns true; Otherwise returns false.
      */
     public static boolean equals(char[] arr1, char[] arr2) {
-        // Replace the following statement with your code
-        return false;
+        if(arr1.length == 0 || arr2.length == 0)
+        return true;
+        for(int i = 0; i < arr1.length; i++) {
+            for(int j = 0; j < arr2.length; j++) {
+                if(arr1[1] != arr2[j])
+                return false;
+            }
+        }
+        return true;
     }
 
     /** Returns the index within the given array of the first occurrence of the given character.
