@@ -44,11 +44,11 @@ public class ArrCharOps {
      *  returns true; Otherwise returns false.
      */
     public static boolean equals(char[] arr1, char[] arr2) {
-        if(arr1.length == 0 || arr2.length == 0)
+        if(arr1 == null || arr2 == null)
         return false;
         if(arr1.length != arr2.length)
         return false;
-        else if(arr1.length == arr2.length) {
+        else {
             for(int i = 0; i < arr1.length; i++) {
                 if(arr1[i] != arr2[i])
                 return false;
@@ -176,24 +176,25 @@ public class ArrCharOps {
     public static int compareTo(String str1, String str2) {
         str1 = str1.toLowerCase();
         str2 = str2.toLowerCase();
-        if(str1 == str2)
-        return 0;
-        else if(str1.length() == 0 || str2.length() == 0)
-        return -2;
-        else if (str1 == str2.substring(0))
-        return -1;
-        else if(str2 == str1.substring(0))
-        return 1;
-        for(int i = 0; i < str1.length(); i++){
-            for(int j = 0; j < str2.length(); j++) {
-                if(str1.charAt(i) != str2.charAt(j)) {
-                    if(str1.charAt(i) > str2.charAt(j))
+        if (str1 == null || str2 == null || str1 == "" || str2 == "") 
+        return -2; // Invalid input
+        int minLength = Math.min(str1.length(), str2.length());
+        for(int i = 0; i < minLength; i++) {
+                if(str1.charAt(i) != str2.charAt(i)) {
+                    if(str1.charAt(i) > str2.charAt(i))
                     return 1;
-                    else if(str1.charAt(i) < str2.charAt(j))
+                    else if(str1.charAt(i) < str2.charAt(i))
                     return -1;
                 }
-            }
         }
+        if (str1.length() == str2.length()) 
         return 0;
+        else {
+            if(str1.length() > str2.length())
+            return 1;
+            else
+            return -1;
+        }
+    
     }
 }
