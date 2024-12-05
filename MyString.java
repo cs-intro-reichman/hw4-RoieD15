@@ -5,7 +5,7 @@ public class MyString {
         //System.out.println("This costs 15 Sheksls : " + lowerCase("This costs 15 Sheksls"));
         //System.out.println("TLV : " + lowerCase("TLV"));
         //System.out.println("lowercase : " + lowerCase("lowercase"));
-        System.out.println("Testing contains:");
+        //System.out.println("Testing contains:");
         System.out.println(contains("unhappy", "happy")); // true
         System.out.println(contains("happy", "unhappy")); // false
         System.out.println(contains("historical", "story")); // false
@@ -44,12 +44,10 @@ public class MyString {
                 return false;
             }
         }
-        int lastIndex = str2.length()-1;
-        for(int i = 0; i < str1.length() - str2.length(); i++) {
-            if((str1.substring(i, lastIndex).equals(str2))) {
+        for(int i = 0; i <= str1.length() - str2.length(); i++) {
+            if((str1.substring(i, i + str2.length()).equals(str2))) {
                 return true;
             }
-            lastIndex++;
         }
         return false;
     }
