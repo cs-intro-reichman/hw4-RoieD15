@@ -6,13 +6,11 @@ public class MyString {
         //System.out.println("TLV : " + lowerCase("TLV"));
         //System.out.println("lowercase : " + lowerCase("lowercase"));
         //System.out.println("Testing contains:");
-        System.out.println(contains("unhappy", "happy")); // true
-        System.out.println(contains("happy", "unhappy")); // false
-        System.out.println(contains("historical", "story")); // false
-        System.out.println(contains("psychology", "psycho")); // true
-        System.out.println(contains("personality", "son")); // true
-        System.out.println(contains("personality", "dad")); // false
-        System.out.println(contains("resignation", "sign")); // true
+        System.out.println(contains("baba yaga", "baba")); // true
+        System.out.println(contains("happy", "")); // true
+        System.out.println(contains("baba yaga", "John Wick is the baba yaga")); // false
+        System.out.println(contains("baba yaga", "Yaga")); // false
+        System.out.println(contains("baba yaga", "babayaga")); // false
     }
 
     /** Returns the lowercase version of the given string. */
@@ -32,11 +30,14 @@ public class MyString {
 
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
-        if(str1.isEmpty() || str2.isEmpty()) {
+        if(str1.isEmpty()) {
             return false;
         }
         if(str2.length() > str1.length()) {
             return false;
+        }
+        if(str2.equals("")) {
+            return true;
         }
         if(str1.length() == str2.length()) {
             for(int i = 0; i < str1.length(); i++) {
