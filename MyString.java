@@ -44,11 +44,13 @@ public class MyString {
                 return false;
             }
         }
+        int lastIndex = str2.length()-1;
         for(int i = 0; i < str1.length() - str2.length(); i++) {
-            if(!(str1.substring(i, str2.length()).equals(str2))) {
-                return false;
+            if((str1.substring(i, lastIndex).equals(str2))) {
+                return true;
             }
+            lastIndex++;
         }
-        return true;
+        return false;
     }
 }
