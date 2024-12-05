@@ -32,18 +32,23 @@ public class MyString {
 
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
-        if(str1.isEmpty() || str2.isEmpty() || str1.isEmpty() || str2.isEmpty()) {
+        if(str1.isEmpty() || str2.isEmpty()) {
             return false;
         }
-        int minLength = Math.min(str1.length(), str2.length());
-        char[] newString = new char[minLength-1];
-        if(str1.length() > str2.length()) {
-            for(int i = 0; i < str2.length(); i++) {
-                newString[i] = str2.charAt(i);
-            }
-            if()
+        if(str2.length() > str1.length()) {
+            return false;
         }
-        
+        if(str1.length() == str2.length()) {
+            for(int i = 0; i < str1.length(); i++) {
+                if(str1.charAt(i) != str2.charAt(i))
+                return false;
+            }
+        }
+        for(int i = 0; i < str1.length() - str2.length(); i++) {
+            if(!(str1.substring(i, str2.length()).equals(str2))) {
+                return false;
+            }
+        }
         return true;
     }
 }
